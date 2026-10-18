@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Gift for Bhoomi 🎁</title>
+<style>
+:root{--bg1:#fff1f6;--bg2:#e9ddff;--ink:#3b1f4a;--sub:#7a5a8a;--card:rgba(255,255,255,.8);--edge:rgba(255,255,255,.95);--a:#ff5fa2;--b:#9b6bff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#150a26;--bg2:#2a1448;--ink:#fbeaff;--sub:#c9a9dd;--card:rgba(255,255,255,.09);--edge:rgba(255,255,255,.2)}}
+:root[data-theme="dark"]{--bg1:#150a26;--bg2:#2a1448;--ink:#fbeaff;--sub:#c9a9dd;--card:rgba(255,255,255,.09);--edge:rgba(255,255,255,.2)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,var(--bg1),var(--bg2));color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+.fx{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.fx i{position:absolute;bottom:-40px;font-style:normal;opacity:.6;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+main{position:relative;max-width:520px;margin:0 auto;padding:30px 18px 50px;text-align:center}
+.scr{display:none}.scr.on{display:block;animation:pop .8s ease both}
+@keyframes pop{from{opacity:0;transform:scale(.85) translateY(20px)}to{opacity:1;transform:none}}
+h1,h2{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;margin:30px 0 8px}
+h1{font-size:2.3rem}h2{font-size:1.6rem}
+p{color:var(--sub);font-style:italic;margin:6px 0}
+button{font:inherit;cursor:pointer;border:0;color:#fff;background:linear-gradient(135deg,var(--a),var(--b));padding:14px 30px;border-radius:30px;font-size:1.05rem;box-shadow:0 10px 24px rgba(155,107,255,.45);margin-top:26px;animation:beat 1.6s infinite}
+@keyframes beat{50%{transform:scale(1.06)}}
+.gift{position:relative;width:170px;height:190px;margin:50px auto 20px;cursor:pointer;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{translate:0 -10px}}
+.wrap{position:absolute;inset:0}
+.sh{animation:sh .55s}
+@keyframes sh{0%,100%{transform:rotate(0)}20%{transform:rotate(calc(var(--amp)*-1))}40%{transform:rotate(var(--amp))}60%{transform:rotate(calc(var(--amp)*-1))}80%{transform:rotate(var(--amp))}}
+.body{position:absolute;bottom:0;width:100%;height:120px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--b));box-shadow:0 24px 40px rgba(0,0,0,.3)}
+.body:before,.lid:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:26px;margin-left:-13px;background:#ffd86b}
+.lid{position:absolute;top:34px;left:-9px;right:-9px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--b),var(--a));z-index:2;transition:transform 1.1s cubic-bezier(.3,1.3,.5,1),opacity 1.1s}
+.lid span{position:absolute;top:-40px;left:0;right:0;font-size:46px}
+.glow{position:absolute;left:50%;top:30px;width:240px;height:240px;margin-left:-120px;border-radius:50%;background:radial-gradient(circle,#fff6b0,rgba(255,216,107,0) 65%);opacity:0;transition:opacity 1s}
+.gift.open .lid{transform:translateY(-190px) rotate(-28deg);opacity:0}
+.gift.open .glow{opacity:1}
+.dots span{display:inline-block;width:12px;height:12px;border-radius:50%;margin:0 5px;background:var(--edge);transition:.4s}
+.dots span.lit{background:#ffd86b;box-shadow:0 0 12px #ffd86b}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px;perspective:800px}
+.tile{margin:0;animation:none;padding:18px 8px;border-radius:20px;background:var(--card);border:1px solid var(--edge);color:var(--ink);box-shadow:0 12px 26px rgba(155,107,255,.25)}
+.tile .e{display:block;font-size:2.6rem}.tile small{color:var(--sub)}
+.tile.sh2{animation:sh2 1.1s}
+@keyframes sh2{0%,100%{transform:rotate(0) scale(1)}15%{transform:rotate(-12deg) scale(1.05)}30%{transform:rotate(12deg) scale(1.1)}45%{transform:rotate(-14deg) scale(1.12)}60%{transform:rotate(14deg) scale(1.15)}80%{transform:rotate(0) scale(1.25)}}
+.tile.done{background:linear-gradient(135deg,rgba(255,95,162,.25),rgba(155,107,255,.25))}
+.bar{height:8px;border-radius:8px;background:var(--card);border:1px solid var(--edge);margin:10px auto 0;max-width:240px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));transition:width .5s}
+#last{display:none}
+.m{position:fixed;inset:0;display:none;place-items:center;background:rgba(10,0,25,.78);z-index:20;padding:20px}
+.m.on{display:grid}
+.mc{background:var(--bg2);color:var(--ink);border:1px solid var(--edge);border-radius:26px;padding:30px 24px;max-width:360px;box-shadow:0 0 60px rgba(255,95,162,.5);animation:pop .6s both}
+.mc .big{font-size:4rem}.mc b{display:block;font-size:1.9rem;margin:6px 0 10px}
+#cd{font-size:6rem;margin:60px 0;color:#ffd86b;text-shadow:0 0 30px #ffd86b}
+#fin{display:none}
+.b{position:fixed;pointer-events:none;z-index:50;font-size:22px;font-style:normal;animation:burst 1s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) scale(1.4);opacity:0}}
+</style>
+</head>
+<body>
+<div class="fx" id="fx" aria-hidden="true"></div>
+<main>
+<section class="scr on" id="s1">
+<h1>Hey Bhoomi 💫</h1>
+<p>Someone has left a little surprise for you…</p>
+<p>Take a deep breath. Maybe close your eyes for a second.</p>
+<button id="go">I’m ready</button>
+</section>
+<section class="scr" id="s2">
+<p id="hint">Tap the gift to open it 🎁</p>
+<div class="gift" id="gift"><div class="glow"></div><div class="wrap"><div class="lid"><span>🎀</span></div><div class="body"></div></div></div>
+<div class="dots" id="dots"><span></span><span></span><span></span></div>
+</section>
+<section class="scr" id="s3">
+<h2>Seven little gifts, just for you</h2>
+<p>Tap one… if you dare 👀</p>
+<div class="bar"><i id="bar"></i></div>
+<div class="grid" id="grid"></div>
+<button id="last">🎁 One last gift…</button>
+</section>
+<section class="scr" id="s4">
+<p>Are you ready?</p>
+<div id="cd">3</div>
+<div id="fin"><h1>You’re beautiful, Bhoomi.</h1><p style="font-size:1.15rem">Inside and out. Never forget how special you are.</p><p>— Your friend 💖</p></div>
+</section>
+</main>
+<div class="m" id="m"><div class="mc"><div class="big" id="me"></div><b id="mw"></b><p id="mt"></p><button id="mk">Keep it 💖</button></div></div>
+<script>
+var items=[
+["🌸","Beautiful","You are truly beautiful, like a flower in full bloom."],
+["😊","Radiant","Your smile lights up every room you walk into."],
+["🦋","Graceful","There is a gentle elegance in everything you do."],
+["💫","Charming","Your presence has a natural, effortless magic."],
+["🤍","Kind-hearted","Your heart is warm, pure and full of care."],
+["🌙","Elegant","Even in simplicity, you are always classy."],
+["⭐","Genuine","You are special exactly as you are."]
+];
+function $(i){return document.getElementById(i)}
+function show(id){document.querySelectorAll(".scr").forEach(function(s){s.classList.toggle("on",s.id===id)});scrollTo(0,0)}
+function boom(x,y,k){var h=["💖","✨","🌸","💫","🦋"];for(var j=0;j<k;j++){var s=document.createElement("i");s.className="b";s.textContent=h[j%5];s.style.left=x+"px";s.style.top=y+"px";s.style.setProperty("--x",(Math.random()*260-130)+"px");s.style.setProperty("--y",(-Math.random()*200-30)+"px");document.body.appendChild(s);setTimeout(function(el){return function(){el.remove()}}(s),1000)}}
+$("go").onclick=function(){show("s2")};
+var taps=0,hints=["Hmm… it feels a little heavy 👀","Something is glowing inside ✨","One more tap… ready?"];
+var G=$("gift"),W=G.querySelector(".wrap");
+G.onclick=function(){
+if(taps>=3)return;taps++;
+W.style.setProperty("--amp",(taps*4)+"deg");W.classList.remove("sh");void W.offsetWidth;W.classList.add("sh");
+$("hint").textContent=hints[taps-1];$("dots").children[taps-1].classList.add("lit");
+var r=G.getBoundingClientRect();boom(r.left+r.width/2,r.top+40,taps*3);
+if(taps===3){setTimeout(function(){G.classList.add("open");$("hint").textContent="Surprise! 🎉";boom(innerWidth/2,innerHeight/2,28);setTimeout(function(){show("s3")},2000)},700)}
+};
+var n=0,busy=false,cur=null;
+items.forEach(function(d,i){
+var b=document.createElement("button");b.className="tile";
+b.innerHTML='<span class="e">🎁</span><small>Gift '+(i+1)+'</small>';
+b.onclick=function(){
+if(b.classList.contains("done")||busy)return;busy=true;b.classList.add("sh2");
+setTimeout(function(){b.classList.remove("sh2");cur=[b,d];
+$("me").textContent=d[0];$("mw").textContent=d[1];$("mt").textContent=d[2];
+$("m").classList.add("on");boom(innerWidth/2,innerHeight/2,18)},1100)};
+$("grid").appendChild(b)});
+$("mk").onclick=function(){
+$("m").classList.remove("on");var b=cur[0],d=cur[1];
+b.classList.add("done");b.querySelector(".e").textContent=d[0];b.querySelector("small").textContent=d[1];
+n++;busy=false;$("bar").style.width=(n/items.length*100)+"%";
+if(n===items.length){$("last").style.display="inline-block";$("last").scrollIntoView({behavior:"smooth",block:"center"})}};
+$("last").onclick=function(){
+show("s4");var c=3,iv=setInterval(function(){c--;
+if(c>0){$("cd").textContent=c}else{clearInterval(iv);$("cd").style.display="none";$("fin").style.display="block";$("fin").style.animation="pop 1s both";boom(innerWidth/2,innerHeight/2,40)}},1000)};
+var F=$("fx"),e=["💖","✨","🌸","💫","🦋"];
+for(var k=0;k<16;k++){var s=document.createElement("i");s.textContent=e[k%5];
+s.style.left=(Math.random()*100)+"%";s.style.fontSize=(14+Math.random()*18)+"px";
+s.style.animationDuration=(9+Math.random()*10)+"s";s.style.animationDelay=(-Math.random()*14)+"s";F.appendChild(s)}
+</script>
+</body>
+</html>
